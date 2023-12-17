@@ -11,15 +11,20 @@ ideas:
 search and find game like where's waldo
 - have multiple html files for the different scenes
 - main background image
-- 5 smaller images to find (more later)
+- smaller images to find (more later)
 - a timer
 - a list of names of items to find (or number of the same item)
 - a score keeper
 - Congratulations you did it alert/screen
+    -- images in an array, if clicked then add marker of some kind, 
+    -- when all images have marker, you win
+    -- use a for/if loop to go through the array of images.
 - try again
 - ability to click on items and have them removed from the main image div
 - when images are removed have them move to the "bank", have the matching image marked out, and/or have a counter
 - have a starting window with a start button 
+
+
 Bonus items:
 
 - settings button for music and sound effects 

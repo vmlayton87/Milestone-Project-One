@@ -1,10 +1,16 @@
-#forest-scene {
+#forest_scene {
     display:flex;
+    /* position: relative; */
 
 }
+ .background_image {
+    background-image: url("./Assets/Forest/Forest_background.png");
+    position: relative;
+    height:500px;
+    width: 500px;
+ }
 
 
-
-.item-checklist {
+.item_checklist {
     
 }
