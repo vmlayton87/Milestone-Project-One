@@ -5,8 +5,7 @@ function getRndInteger(min, max) {
   }
 
 // list of items to be put into scene
-let listofChar = [
-    "./Assets/Forest/baby_fox.png",
+const listofChar = [
     "./Assets/Forest/bee.png",
     "./Assets/Forest/blue_bird.png",
     "./Assets/Forest/brown_mouse.png",
@@ -68,10 +67,14 @@ findItems = {
     findCharacterList: [],
 
     makeListofCharactersToFind: function () {
+        let duplicateListofChar = listofChar // duplicates the original list of image sources
+        console.log(duplicateListofChar)
         for (let i = 0; i < 5; i++) {
-            const randNumber = getRndInteger(0, listofChar.length-1)
-            const findThisCharacter = listofChar[randNumber]
-            this.findCharacterList.push(findThisCharacter)
+            const randNumber = getRndInteger(0, duplicateListofChar.length-1) // creates a random index number based on length of array
+            const findThisCharacter = duplicateListofChar[randNumber] // assigns a random image source to the variable
+            this.findCharacterList.push(findThisCharacter) // adds the random image to a new array
+            duplicateListofChar.splice(randNumber,1) // deletes the random image from the duplicate list of image sources so there are no repeats in the new array
+            console.log(duplicateListofChar)
         }
         console.log(this.findCharacterList)
     },
@@ -80,7 +83,6 @@ findItems = {
         
         const checklist = document.querySelector(".image_list") //calls the checklist div
         for (let i = 0; i < this.findCharacterList.length; i++) {
-            // checklist.append(`<li><img src="${this.findCharacterList[i]}"></li>`)
 
             //create list item element
             let listItemElement = document.createElement("li")
