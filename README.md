@@ -29,3 +29,31 @@ Bonus items:
 
 Sources:
 Forest_background.png: https://opengameart.org/content/forest-scene No attribution required. 
+From https://publicdomainvectors.org/:
+    - baby_fox.png
+    - bee.png
+    - blue_bird.png
+    - brown_mouse.png
+    - Cartoon_Butterfly.png
+    - cartoon_duck.png
+    - Cartoon-Ant.png
+    - Cartoon-Frog.png
+    - Cartoon-owl-asleep.png
+    - Cartoon-Snail.png
+    - fat_yellow_bird.png
+    - fox.png
+    - grey_blue_butterfly.png
+    - grey_mouse.png
+    - monkey.png
+    - red_bird.png
+    - reindeer.png
+    - snail.png
+    - Snake-BACK.png
+    
+    
+    
+    
+    
+    
+    
+    
