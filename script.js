@@ -1,3 +1,15 @@
+
+// random number generator, includes the min and max value. will use to choose pixel coordinates for scene characters
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
+// list of items to be put into scene
+let listofChar = [
+    "./Assets/Forest/Cartoon-Ant_10.png",
+    "./Assets/Forest/Cartoon-Frog.png"
+]
+
 // get images and put them onto scene
 function newImage(url){
     let image = document.createElement("img")
@@ -8,6 +20,7 @@ function newImage(url){
     background.append(image)
     return image
 }
+
 // placement of images on background
 function place(elem){
     elem.style.position = 'absolute'
@@ -22,14 +35,13 @@ function place(elem){
     }
 }
 
+// function for adding characters to background from array of character urls
 function addSceneCharacters () {
-    let listofChar = [
-        "./Assets/Forest/Cartoon-Ant_10.png",
-        "./Assets/Forest/Cartoon-Frog.png"
-    ]
-    for (let index = 0; index < listofChar.length; index++) {
-        const c = listofChar[index];
-        place(newImage(c)).to(20,20);
+    
+    for (let i = 0; i < listofChar.length; i++) {
+        let left = getRndInteger(1, 500)
+        let bottom = getRndInteger(1, 500)
+        place(newImage(listofChar[i])).to(left,bottom);
     }
     
 }
