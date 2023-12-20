@@ -76,9 +76,9 @@ addSceneCharacters()
     */
 findItems = {
     
-    findCharacterList: [],
+    findCharacterList: [], // list of characters to find 
 
-    doNotFindCharList: [],
+    doNotFindCharList: [], // the rest of the characters, not supposed to find these
 
     makeListofCharactersToFind: function () {
         let duplicateListofChar = listofChar // duplicates the original list of image sources
@@ -86,12 +86,12 @@ findItems = {
         for (let i = 0; i < 5; i++) {
             
             const randNumber = getRndInteger(0, duplicateListofChar.length-1) // creates a random index number based on length of array
-            const findThisCharacter = duplicateListofChar[randNumber] // assigns a random image source to the variable
+            const findThisCharacter = duplicateListofChar[randNumber] // assigns a random image source to the variable name
             this.findCharacterList.push(findThisCharacter) // adds the random image to a new array
             duplicateListofChar.splice(randNumber,1) // deletes the random image from the duplicate list of image sources so there are no repeats in the new array
             
         }
-        this.doNotFindCharList = duplicateListofChar
+        this.doNotFindCharList = duplicateListofChar // adds the spliced list of images to the do not find list
         
     },
 
@@ -120,22 +120,27 @@ findItems = {
     },
 
     // when found item is clicked on, it is removed from the scene and a checkmark is added next to the list
+    //event listener function
+
+    
     checkOffIfCorrectImageFound: function (){
 
         let sceneCharacter = document.querySelectorAll(".scene_character") // makes a node list of all images that have a class name of scene_character. This is used to make sure only the images inside the scene have the event listener and not the images in the to be found list.
         
+        // goes through each sceneCharater node list item and adds an onclick event listener
         sceneCharacter.forEach((item)=> {
             item.addEventListener("click", function(){
-                console.log("This image has been clicked on: " , item.attributes.src.nodeValue)
+                console.log("This image has been clicked on: " , item.attributes.src.nodeValue) //making sure the correct path is chosen to check for the file path name
+
                 // to loop through each characterlist item and see if file paths match
-                console.log(findItems.findCharacterList)
-                let foundIt = false
+                           
+                let foundIt = false // to set a boolean value for if something has been clicked on. Will allow for a try again alert message for now, and points to be reduced later.
                 for (let i = 0; i < findItems.findCharacterList.length; i++) {
                     if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
                         console.log("You Found IT!")
-                        item.remove()
+                        item.remove() // removes the item from the scene when it is found
                         foundIt = true
-                        break
+                        break // stops the for loop when the correct item is found
                     } 
                 }
                 if (foundIt === false ){ window.alert("Try Again!")}
