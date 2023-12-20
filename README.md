@@ -29,7 +29,7 @@ Bonus items:
 
 - settings button for music and sound effects 
 - easy, medium, and hard: type of photo, number of items, faster time?
-- 
+- lose points when wrong item is clicked on
 
 
 Sources:

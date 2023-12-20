@@ -64,19 +64,46 @@ function addSceneCharacters () {
 addSceneCharacters()
 
 findItems = {
+    
     findCharacterList: [],
+
+    doNotFindCharList: [],
+
+// when found item is clicked on, it is removed from the scene and a checkmark is added next to the list
+
+    checkOffIfCorrectImageFound: function (){
+        let imageElement = document.querySelectorAll("img")
+        let imageFilePathArray = []
+        console.log("image element array: " , imageElement)
+        for (let i = 0; i < imageElement.length; i++) {
+            imageFilePathArray.push(imageElement[i].attributes.src.nodeValue ) // where the file path is located and an array made out of those
+        }
+        console.log("List out all image tag sources: " , imageFilePathArray)
+        
+        if (imageFilePathArray[0]== this.findCharacterList[0]) {
+            console.log("They match!")
+            console.log("imagefile path: " + imageFilePathArray[0])
+            console.log("this.findcharacterList[0]: " + this.findCharacterList[0])
+        } else {
+            console.log("They do NOT Match")
+            console.log("imagefile path:" + imageFilePathArray[0])
+            console.log("this.findcharacterList[0]: " + this.findCharacterList[0])
+        }
+    },
 
     makeListofCharactersToFind: function () {
         let duplicateListofChar = listofChar // duplicates the original list of image sources
-        console.log(duplicateListofChar)
+        
         for (let i = 0; i < 5; i++) {
+            
             const randNumber = getRndInteger(0, duplicateListofChar.length-1) // creates a random index number based on length of array
             const findThisCharacter = duplicateListofChar[randNumber] // assigns a random image source to the variable
             this.findCharacterList.push(findThisCharacter) // adds the random image to a new array
             duplicateListofChar.splice(randNumber,1) // deletes the random image from the duplicate list of image sources so there are no repeats in the new array
-            console.log(duplicateListofChar)
+            
         }
-        console.log(this.findCharacterList)
+        this.doNotFindCharList = duplicateListofChar
+        
     },
 
     addListofCharactersToItemDiv: function () {
@@ -86,13 +113,17 @@ findItems = {
 
             //create list item element
             let listItemElement = document.createElement("li")
+
             //create image element
             let imageListElement = document.createElement("img")
+
             //create image source
             imageListElement.src = this.findCharacterList[i]
             imageListElement.style.height = "50px"
+            
             //append image to list item
             listItemElement.append(imageListElement)
+           
             //append list item to checklist
             checklist.append(listItemElement)
         }
@@ -102,6 +133,36 @@ findItems = {
 
 findItems.makeListofCharactersToFind()
 findItems.addListofCharactersToItemDiv()
+console.log("These are the items to be found: " , findItems.findCharacterList)
+console.log("These are the items NOT to be found: ", findItems.doNotFindCharList)
+findItems.checkOffIfCorrectImageFound()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*********************************************
  * 
 object for found images {
