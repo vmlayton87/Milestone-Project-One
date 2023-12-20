@@ -31,6 +31,7 @@ function newImage(url){
     let image = document.createElement("img")
     let background = document.querySelector(".background_image")
     image.src = url
+    image.className = "scene_character"
     image.style.height = "50px"
     background.append(image)
     return image
@@ -63,33 +64,21 @@ function addSceneCharacters () {
 
 addSceneCharacters()
 
+
+/***********************************************************************************************************************************************
+ ***********************************************************************************************************************************************
+ ************************************************************************************************************************************************/
+
+ /* Working on a find Items object. This will hold the list of characters to be found, and place them in a separate div. 
+    This will have an array of items that are not supposed to be found. 
+    functions:  create the two lists
+                create an event listener for all images in the HTML document: when the clicked on source matches the source from the find characters list, then it will be removed from the main scene, and the list item will change.
+    */
 findItems = {
     
     findCharacterList: [],
 
     doNotFindCharList: [],
-
-// when found item is clicked on, it is removed from the scene and a checkmark is added next to the list
-
-    checkOffIfCorrectImageFound: function (){
-        let imageElement = document.querySelectorAll("img")
-        let imageFilePathArray = []
-        console.log("image element array: " , imageElement)
-        for (let i = 0; i < imageElement.length; i++) {
-            imageFilePathArray.push(imageElement[i].attributes.src.nodeValue ) // where the file path is located and an array made out of those
-        }
-        console.log("List out all image tag sources: " , imageFilePathArray)
-        
-        if (imageFilePathArray[0]== this.findCharacterList[0]) {
-            console.log("They match!")
-            console.log("imagefile path: " + imageFilePathArray[0])
-            console.log("this.findcharacterList[0]: " + this.findCharacterList[0])
-        } else {
-            console.log("They do NOT Match")
-            console.log("imagefile path:" + imageFilePathArray[0])
-            console.log("this.findcharacterList[0]: " + this.findCharacterList[0])
-        }
-    },
 
     makeListofCharactersToFind: function () {
         let duplicateListofChar = listofChar // duplicates the original list of image sources
@@ -128,7 +117,33 @@ findItems = {
             checklist.append(listItemElement)
         }
         
-    }
+    },
+
+    // when found item is clicked on, it is removed from the scene and a checkmark is added next to the list
+    checkOffIfCorrectImageFound: function (){
+
+        let sceneCharacter = document.querySelectorAll(".scene_character") // makes a node list of all images that have a class name of scene_character. This is used to make sure only the images inside the scene have the event listener and not the images in the to be found list.
+        
+        sceneCharacter.forEach((item)=> {
+            item.addEventListener("click", function(){
+                console.log("This image has been clicked on: " , item.attributes.src.nodeValue)
+                // to loop through each characterlist item and see if file paths match
+                console.log(findItems.findCharacterList)
+                let foundIt = false
+                for (let i = 0; i < findItems.findCharacterList.length; i++) {
+                    if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
+                        console.log("You Found IT!")
+                        item.remove()
+                        foundIt = true
+                        break
+                    } 
+                }
+                if (foundIt === false ){ window.alert("Try Again!")}
+                
+            })
+        })
+       
+    },
 }
 
 findItems.makeListofCharactersToFind()
