@@ -59,12 +59,16 @@ function place(elem){
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
     
-    for (let i = 0; i < listofChar.length; i++) {
-        let left = getRndInteger(1, 500)
-        let bottom = getRndInteger(1, 500)
-        place(newImage(listofChar[i])).to(left,bottom);
+    for (let i = 0; i < listofSkyChar.length; i++) {
+        let left = getRndInteger(1, 1220)
+        let bottom = getRndInteger(350, 650)
+        place(newImage(listofSkyChar[i])).to(left,bottom);
     }
-    
+    for (let i = 0; i < listofLandChar.length; i++) {
+        let left = getRndInteger(1, 1220)
+        let bottom = getRndInteger(1, 325)
+        place(newImage(listofLandChar[i])).to(left,bottom);
+    }
 }
  
 
@@ -156,7 +160,6 @@ findItems = {
                 let foundIt = false // to set a boolean value for if something has been clicked on. Will allow for a try again alert message for now, and points to be reduced later.
                 for (let i = 0; i < findItems.findCharacterList.length; i++) {
                     if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
-                        window.alert("You found it!")
 
                         item.remove() // removes the item from the scene when it is found
                         
@@ -165,6 +168,7 @@ findItems = {
                         checkmarkImageElement.src = "./Assets/Check-mark.png"
                         checkmarkImageElement.style.height = "50px"
                         foundItem.append(checkmarkImageElement)
+
                         foundIt = true
                         break // stops the for loop when the correct item is found
                     } 
