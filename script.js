@@ -5,26 +5,31 @@ function getRndInteger(min, max) {
   }
 
 // list of items to be put into scene
-const listofChar = [
+const listofSkyChar = [
     "./Assets/Forest/bee.png",
     "./Assets/Forest/blue_bird.png",
-    "./Assets/Forest/brown_mouse.png",
     "./Assets/Forest/Cartoon_Butterfly.png",
+    "./Assets/Forest/Cartoon-owl-asleep.png",
+    "./Assets/Forest/fat_yellow_bird.png",
+    "./Assets/Forest/grey_blue_butterfly.png",
+    "./Assets/Forest/red_bird.png",
+]
+
+const listofLandChar = [
+    "./Assets/Forest/brown_mouse.png",
     "./Assets/Forest/cartoon_duck.png",
     "./Assets/Forest/Cartoon-Ant.png",
     "./Assets/Forest/Cartoon-Frog.png",
-    "./Assets/Forest/Cartoon-owl-asleep.png",
     "./Assets/Forest/Cartoon-Snail.png",
-    "./Assets/Forest/fat_yellow_bird.png",
     "./Assets/Forest/fox.png",
-    "./Assets/Forest/grey_blue_butterfly.png",
     "./Assets/Forest/grey_mouse.png",
     "./Assets/Forest/monkey.png",
-    "./Assets/Forest/red_bird.png",
     "./Assets/Forest/reindeer.png",
     "./Assets/Forest/snail.png",
     "./Assets/Forest/Snake-BACK.png"
 ]
+
+const listofChar = listofSkyChar.concat(listofLandChar)
 
 // get images and put them onto scene
 function newImage(url){
@@ -53,12 +58,45 @@ function place(elem){
 
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
-    
-    for (let i = 0; i < listofChar.length; i++) {
-        let left = getRndInteger(1, 500)
-        let bottom = getRndInteger(1, 500)
-        place(newImage(listofChar[i])).to(left,bottom);
-    }
+    let leftPosArray = [] // an array of left coordinates of the images
+    let bottomPosArray = [] // an array of bottom coordinates of the images
+
+    // placement of the sky characters
+    for (let i = 0; i < listofSkyChar.length; i++) {
+        // creating left positions that do not overlap
+        for (let i = 0; i < leftPosArray.length; i++) {
+            let checkLeft = getRndInteger(1, 1220) 
+            while ( checkLeft < leftPosArray[i] - 50|| checkLeft > leftPosArray[i] + 50 ) {
+                let left = checkLeft
+                leftPosArray.push(left)
+                console.log("leftPosArray inside while loop: " , leftPosArray)
+                return left
+                
+            }
+            
+        }
+        // creating bottom positions that do nor overlap
+    //     for (let i = 0; i < leftPosArray.length; i++) {
+    //         let checkLeft = getRndInteger(1, 1220) 
+    //         while ( checkleft < leftPosArray[i] - 50|| checkleft > leftPosArray[i]) + {
+    //             let left = checkLeft
+    //         }
+    //         console.log(leftPosArray)
+    //     }
+
+    //     let bottom = getRndInteger(325, 650)
+    //     place(newImage(listofSkyChar[i])).to(left,bottom);
+    //     leftPosArray.push(left)
+    //     bottomPosArray.push(bottom)
+    // }
+    // // placement of the land characters
+    // for (let i = 0; i < listofLandChar.length; i++) {
+    //     let left = getRndInteger(1, 1280) 
+    //     let bottom = getRndInteger(1, 325)
+    //     place(newImage(listofLandChar[i])).to(left,bottom);
+    //     leftPosArray.push(left)
+    //     bottomPosArray.push(bottom)
+    // }
     
 }
 
@@ -102,6 +140,7 @@ findItems = {
 
             //create list item element
             let listItemElement = document.createElement("li")
+            listItemElement.className = "find_list_item"
 
             //create image element
             let imageListElement = document.createElement("img")
@@ -137,7 +176,7 @@ findItems = {
                 let foundIt = false // to set a boolean value for if something has been clicked on. Will allow for a try again alert message for now, and points to be reduced later.
                 for (let i = 0; i < findItems.findCharacterList.length; i++) {
                     if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
-                        console.log("You Found IT!")
+                        window.alert("You found it!")
                         item.remove() // removes the item from the scene when it is found
                         foundIt = true
                         break // stops the for loop when the correct item is found
@@ -157,67 +196,3 @@ console.log("These are the items to be found: " , findItems.findCharacterList)
 console.log("These are the items NOT to be found: ", findItems.doNotFindCharList)
 findItems.checkOffIfCorrectImageFound()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*********************************************
- * 
-object for found images {
-
-    array of images
-
-    add images function with click event listener
-
-    function checking if all items have been clicked that are supposed to be found
-
-
-} 
- */
-
-/*
-
-global array of images to add to scene
-function to add all images from array to scene with a random pixel location
-have one array inside global array to be sky animals
-have one array inside global array to be land animals
-have one array inside global array to be plants
-
-randomize location of sky animals to the sky
-randomize location of land animals to the land
-
-have function for finding images:
-    randomize through the global array of land animals
-    randomize through the global array of sky animals
-
-    make these new array's clickable
-    append these images to the item_checklist div
-    
-    when clicked, item_checklist div images have a marker somehow
-
-    when all item_checklist images have been selected, congratulations alert
-
-
-*/

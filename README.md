@@ -56,6 +56,10 @@ From https://publicdomainvectors.org/:
     - Snake-BACK.png
     
     
+    12/19/2023
+    add checkmark next to list items when matching scene character is clicked on
+    window alert of "congratulations" when all findcharacters are clicked on (make a tracker of some kind)
+    create point system
     
     
     
