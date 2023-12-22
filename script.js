@@ -58,48 +58,28 @@ function place(elem){
 
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
-    let leftPosArray = [] // an array of left coordinates of the images
-    let bottomPosArray = [] // an array of bottom coordinates of the images
-
-    // placement of the sky characters
-    for (let i = 0; i < listofSkyChar.length; i++) {
-        // creating left positions that do not overlap
-        for (let i = 0; i < leftPosArray.length; i++) {
-            let checkLeft = getRndInteger(1, 1220) 
-            while ( checkLeft < leftPosArray[i] - 50|| checkLeft > leftPosArray[i] + 50 ) {
-                let left = checkLeft
-                leftPosArray.push(left)
-                console.log("leftPosArray inside while loop: " , leftPosArray)
-                return left
-                
-            }
-            
-        }
-        // creating bottom positions that do nor overlap
-    //     for (let i = 0; i < leftPosArray.length; i++) {
-    //         let checkLeft = getRndInteger(1, 1220) 
-    //         while ( checkleft < leftPosArray[i] - 50|| checkleft > leftPosArray[i]) + {
-    //             let left = checkLeft
-    //         }
-    //         console.log(leftPosArray)
-    //     }
-
-    //     let bottom = getRndInteger(325, 650)
-    //     place(newImage(listofSkyChar[i])).to(left,bottom);
-    //     leftPosArray.push(left)
-    //     bottomPosArray.push(bottom)
-    // }
-    // // placement of the land characters
-    // for (let i = 0; i < listofLandChar.length; i++) {
-    //     let left = getRndInteger(1, 1280) 
-    //     let bottom = getRndInteger(1, 325)
-    //     place(newImage(listofLandChar[i])).to(left,bottom);
-    //     leftPosArray.push(left)
-    //     bottomPosArray.push(bottom)
-    // }
+    
+    for (let i = 0; i < listofChar.length; i++) {
+        let left = getRndInteger(1, 500)
+        let bottom = getRndInteger(1, 500)
+        place(newImage(listofChar[i])).to(left,bottom);
+    }
     
 }
+ 
 
+/* working original add scene characters function
+
+function addSceneCharacters () {
+    
+    for (let i = 0; i < listofChar.length; i++) {
+        let left = getRndInteger(1, 500)
+        let bottom = getRndInteger(1, 500)
+        place(newImage(listofChar[i])).to(left,bottom);
+    }
+    
+}
+*/
 addSceneCharacters()
 
 
@@ -140,7 +120,7 @@ findItems = {
 
             //create list item element
             let listItemElement = document.createElement("li")
-            listItemElement.className = "find_list_item"
+            listItemElement.id = this.findCharacterList[i]
 
             //create image element
             let imageListElement = document.createElement("img")
@@ -177,7 +157,14 @@ findItems = {
                 for (let i = 0; i < findItems.findCharacterList.length; i++) {
                     if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
                         window.alert("You found it!")
+
                         item.remove() // removes the item from the scene when it is found
+                        
+                        let foundItem = document.getElementById(findItems.findCharacterList[i])
+                        let checkmarkImageElement = document.createElement("img")
+                        checkmarkImageElement.src = "./Assets/Check-mark.png"
+                        checkmarkImageElement.style.height = "50px"
+                        foundItem.append(checkmarkImageElement)
                         foundIt = true
                         break // stops the for loop when the correct item is found
                     } 
