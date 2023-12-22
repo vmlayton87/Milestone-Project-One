@@ -8,7 +8,9 @@
     height: 720px;
     width: 1280px;
 }
-
+ul {
+    list-style: none;
+}
 .found_image {
     opacity:0.5
 }

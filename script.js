@@ -149,7 +149,7 @@ findItems = {
     checkOffIfCorrectImageFound: function (){
 
         let sceneCharacter = document.querySelectorAll(".scene_character") // makes a node list of all images that have a class name of scene_character. This is used to make sure only the images inside the scene have the event listener and not the images in the to be found list.
-        
+        let counter = 0
         // goes through each sceneCharater node list item and adds an onclick event listener
         sceneCharacter.forEach((item)=> {
             item.addEventListener("click", function(){
@@ -169,15 +169,20 @@ findItems = {
                         checkmarkImageElement.style.height = "50px"
                         foundItem.append(checkmarkImageElement)
 
+                        counter++
+
                         foundIt = true
                         break // stops the for loop when the correct item is found
                     } 
                 }
                 if (foundIt === false ){ window.alert("Try Again!")}
                 
+                
             })
+            
         })
-       
+        
+        if (counter === findItems.findCharacterList.length) {window.alert("You Found Them ALL!")}
     },
 }
 
