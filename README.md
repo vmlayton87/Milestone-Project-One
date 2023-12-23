@@ -56,10 +56,14 @@ From https://publicdomainvectors.org/:
     - Snake-BACK.png
     
     
-    12/19/2023
-    add checkmark next to list items when matching scene character is clicked on
-    window alert of "congratulations" when all findcharacters are clicked on (make a tracker of some kind)
-    create point system
+    12/22/2023
+    - check for overlap of images
+    - make the scene height and width responsive
+    - using the responsive height and width of the background scene, add the limits of the images to be added to the scene
+    - create a welcome page
+    - create a try again area on the screen instead of a window alert
+    - create a you won window on the screen. create buttons to continue or to go back to main menu
+    
     
     
     

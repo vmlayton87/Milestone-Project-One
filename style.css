@@ -1,5 +1,5 @@
 #forest_scene {
-    display:flex;
+    width: 1280px;
 }
 
 .background_image {
@@ -8,9 +8,9 @@
     height: 720px;
     width: 1280px;
 }
+
 ul {
     list-style: none;
+    display:inline-flex;
 }
-.found_image {
-    opacity:0.5
-}
+
