@@ -28,7 +28,7 @@ const listofLandChar = [
     "./Assets/Forest/snail.png",
     "./Assets/Forest/Snake-BACK.png"
 ]
-
+// combines the sky and land animals into one array for use in making a to find list
 const listofChar = listofSkyChar.concat(listofLandChar)
 
 // get images and put them onto scene
@@ -71,19 +71,6 @@ function addSceneCharacters () {
     }
 }
  
-
-/* working original add scene characters function
-
-function addSceneCharacters () {
-    
-    for (let i = 0; i < listofChar.length; i++) {
-        let left = getRndInteger(1, 500)
-        let bottom = getRndInteger(1, 500)
-        place(newImage(listofChar[i])).to(left,bottom);
-    }
-    
-}
-*/
 addSceneCharacters()
 
 
@@ -142,14 +129,14 @@ findItems = {
         
     },
 
-    // when found item is clicked on, it is removed from the scene and a checkmark is added next to the list
-    //event listener function
-
     
     checkOffIfCorrectImageFound: function (){
 
         let sceneCharacter = document.querySelectorAll(".scene_character") // makes a node list of all images that have a class name of scene_character. This is used to make sure only the images inside the scene have the event listener and not the images in the to be found list.
-        let counter = 0
+        
+
+        let counter = 0 // needs to be here so it doesn't reset to 0 every time the event listener is called.
+
         // goes through each sceneCharater node list item and adds an onclick event listener
         sceneCharacter.forEach((item)=> {
             item.addEventListener("click", function(){
@@ -158,31 +145,35 @@ findItems = {
                 // to loop through each characterlist item and see if file paths match
                            
                 let foundIt = false // to set a boolean value for if something has been clicked on. Will allow for a try again alert message for now, and points to be reduced later.
+
                 for (let i = 0; i < findItems.findCharacterList.length; i++) {
                     if (item.attributes.src.nodeValue === findItems.findCharacterList[i]) {
 
                         item.remove() // removes the item from the scene when it is found
-                        
+                        counter++ 
+                        foundIt = true
+
                         let foundItem = document.getElementById(findItems.findCharacterList[i])
                         let checkmarkImageElement = document.createElement("img")
                         checkmarkImageElement.src = "./Assets/Check-mark.png"
                         checkmarkImageElement.style.height = "50px"
                         foundItem.append(checkmarkImageElement)
+                        
+                        checkmarkImageElement.onload = ()=> {if (counter === findItems.findCharacterList.length) {window.alert("You Found Them ALL!")}}
+                        // chatGPT lead me to the .onload. Looked up the documentation and used it. 
 
-                        counter++
-
-                        foundIt = true
                         break // stops the for loop when the correct item is found
                     } 
                 }
+                
                 if (foundIt === false ){ window.alert("Try Again!")}
                 
-                
-            })
+
+            } )
             
         })
         
-        if (counter === findItems.findCharacterList.length) {window.alert("You Found Them ALL!")}
+          
     },
 }
 
@@ -191,4 +182,5 @@ findItems.addListofCharactersToItemDiv()
 console.log("These are the items to be found: " , findItems.findCharacterList)
 console.log("These are the items NOT to be found: ", findItems.doNotFindCharList)
 findItems.checkOffIfCorrectImageFound()
+
 
