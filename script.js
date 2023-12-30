@@ -37,6 +37,7 @@ function newImage(url){
     image.src = url
     image.className = "scene_character"
     image.style.height = "50px"
+    image.style.width = ""
     background.append(image)
     return image
 }
@@ -182,7 +183,10 @@ findItems = {
                         checkmarkImageElement.style.height = "50px"
                         foundItem.append(checkmarkImageElement)
                         
-                        checkmarkImageElement.onload = ()=> {if (counter === findItems.findCharacterList.length) {window.alert("You Found Them ALL!")}}
+                        checkmarkImageElement.onload = ()=> {
+                            if (counter === findItems.findCharacterList.length) {
+                                setTimeout( () => window.alert("You Found Them ALL!"), 200)
+                            }}
                         // chatGPT lead me to the .onload. Looked up the documentation and used it. 
 
                         break // stops the for loop when the correct item is found

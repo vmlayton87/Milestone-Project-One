@@ -64,6 +64,8 @@ From https://publicdomainvectors.org/:
     - create a try again area on the screen instead of a window alert
     - create a you won window on the screen. create buttons to continue or to go back to main menu
     
+    12/30/23
+    - offsetWidth returns a value of 0. 
     
     
     
