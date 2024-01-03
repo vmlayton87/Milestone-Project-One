@@ -1,17 +1,26 @@
+#forest_body {
+    width: max-content;
+    text-align: center;
+    padding: 5px;
+    margin: auto 0;
+}
+
 #forest_scene {
-    width: 1280px;
+    text-align: center;
 }
 
 .background_image {
     background-image: url("./Assets/Forest/Forest_background.png");
     position: relative;
+    background-size: 1280px 720px;
     height: 720px;
     width: 1280px;
 }
 
 ul {
     list-style: none;
-    display:inline-flex;
+    display:flex;
+    justify-content: space-evenly;
 }
 
 #opener {
@@ -29,5 +38,8 @@ ul {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    
+}
+
+#open_body {
+    background-image: url("./Assets/Opener\ Background.png");
 }

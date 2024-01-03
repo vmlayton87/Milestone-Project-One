@@ -136,6 +136,7 @@ findItems = {
             //create list item element
             let listItemElement = document.createElement("li")
             listItemElement.id = this.findCharacterList[i]
+            listItemElement.style.margin = "10px 2px"
 
             //create image element
             let imageListElement = document.createElement("img")
