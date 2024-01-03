@@ -33,6 +33,7 @@ Bonus items:
 
 
 Sources:
+Opener Background.png: used an image of a magnifying glass from https://publicdomainvectors.org/ and edited it in paint3D in Windows to make it different colors. Then used microsoft word to create a collage of the different images and created an image file from that.
 Forest_background.png: https://opengameart.org/content/forest-scene No attribution required. 
 From https://publicdomainvectors.org/:
     - Check-mark.png
