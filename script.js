@@ -32,13 +32,14 @@ const listofChar = listofSkyChar.concat(listofLandChar)
 
 // get images and put them onto scene
 function newImage(url){
+    
     let image = document.createElement("img")
     let background = document.querySelector(".background_image")
     image.src = url
     image.className = "scene_character"
     image.style.height = "50px"
-    image.style.width = ""
     background.append(image)
+
     return image
 }
 
@@ -58,44 +59,40 @@ function place(elem){
 
 //function to check for overlapping
 const isOverlapping = false
-function checkForOverlapping () {
+window.onload = function checkForOverlapping () {
     let sceneCharacter = document.querySelectorAll(".scene_character")
-    console.log("image 16 left:", sceneCharacter[16].offsetLeft)
-    console.log("image 16 width:", sceneCharacter[16].offsetWidth) // return a value of 0. why? the node list shows a value. same issue with getBoundingClientRect()
-    console.log("image 12 left:", sceneCharacter[12].offsetLeft)
-    console.log("image 12 width:", sceneCharacter[12].offsetWidth) // return a value of 0. why? the node list shows a value. same issue with getBoundingClientRect()
-    console.log("image 16 top:", sceneCharacter[16].offsetTop)
-    console.log("image 12 top:", sceneCharacter[12].offsetTop)
-    console.log("image 12 height:", sceneCharacter[12].offsetHeight)
-    if ((sceneCharacter[16].offsetLeft < sceneCharacter[12].offsetLeft + sceneCharacter[12].offsetWidth || 
-            sceneCharacter[16].offsetLeft > sceneCharacter[12].offsetLeft + sceneCharacter[12].offsetWidth) 
-        && (sceneCharacter[16].offsetTop < sceneCharacter[12].offsetTop + sceneCharacter[12].offsetHeight || 
-            sceneCharacter[16].offsetTop > sceneCharacter[12].offsetTop + sceneCharacter[12].height)) {
+    console.log(sceneCharacter)
+    
+    for (let i=0;i<sceneCharacter.length;i++) {
+        let first = i
+        let second = first + 1
+    if ((sceneCharacter[second].offsetLeft < sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth || 
+            sceneCharacter[second].offsetLeft > sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth) 
+        && (sceneCharacter[second].offsetTop < sceneCharacter[first].offsetTop + sceneCharacter[first].offsetHeight || 
+            sceneCharacter[second].offsetTop > sceneCharacter[first].offsetTop + sceneCharacter[first].height)) {
         console.log("the first item is not overlapping the second item")
     } else {
         console.log("the first and second item are overlapping")
-    }
-    console.log(sceneCharacter)
+    } }    
 } 
 
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
     
     for (let i = 0; i < listofSkyChar.length; i++) {
-        let left = getRndInteger(1, 1220)
+        let left = getRndInteger(5, 1180)
         let top = getRndInteger(1, 320)
         
         place(newImage(listofSkyChar[i])).to(left,top);
     }
     for (let i = 0; i < listofLandChar.length; i++) {
-        let left = getRndInteger(1, 1220)
+        let left = getRndInteger(5, 1180)
         let top = getRndInteger(360, 650)
         place(newImage(listofLandChar[i])).to(left,top);
     }
 }
  
 addSceneCharacters()
-checkForOverlapping()
 
 
 /***********************************************************************************************************************************************

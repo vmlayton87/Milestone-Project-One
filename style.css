@@ -2,7 +2,7 @@
     width: max-content;
     text-align: center;
     padding: 5px;
-    margin: auto 0;
+    margin: 0 auto;
 }
 
 #forest_scene {
@@ -16,6 +16,7 @@
     height: 720px;
     width: 1280px;
 }
+
 
 ul {
     list-style: none;

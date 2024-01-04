@@ -67,6 +67,19 @@ From https://publicdomainvectors.org/:
     
     12/30/23
     - offsetWidth returns a value of 0. 
+
+    01/04/2024
+    - create a menu to return to homepage if in search scene.
+    - change window alert for try again to be a div within an aside that shows text "try again"
+    - change window alert when completed to show a play this scene again or go home.
+    - when have multiple scenes, have options to choose which scene on home page.
+    
+
+    bonus:
+    - add a timer for while playing the scene, a pause button that blurs/hides the scene.
+    - add your time for each time played in the finish alert
+    - store shortest time, long term, with option to add name to the "fastest time" records for each scene.
+    - maybe have a separate html file for stats.
     
     
     
