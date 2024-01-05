@@ -57,8 +57,16 @@ function place(elem){
     }
 }
 
-//function to check for overlapping
-const isOverlapping = false
+/***********************************************************************************************************************************************
+ ***********************************************************************************************************************************************
+ ************************************************************************************************************************************************/
+/* Working on an object for placing images in the scene without overlapping them */
+
+
+
+// the below code works to place images, and to get the offset values and check them with the next item list but not all items
+/* //function to check for overlapping
+
 window.onload = function checkForOverlapping () {
     let sceneCharacter = document.querySelectorAll(".scene_character")
     console.log(sceneCharacter)
@@ -74,7 +82,7 @@ window.onload = function checkForOverlapping () {
     } else {
         console.log("the first and second item are overlapping")
     } }    
-} 
+} */
 
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
@@ -99,11 +107,7 @@ addSceneCharacters()
  ***********************************************************************************************************************************************
  ************************************************************************************************************************************************/
 
- /* Working on a find Items object. This will hold the list of characters to be found, and place them in a separate div. 
-    This will have an array of items that are not supposed to be found. 
-    functions:  create the two lists
-                create an event listener for all images in the HTML document: when the clicked on source matches the source from the find characters list, then it will be removed from the main scene, and the list item will change.
-    */
+ // one object to handle creating a list of images that are to be found, and placing them in the ul in html
 findItems = {
     
     findCharacterList: [], // list of characters to find 
@@ -183,7 +187,7 @@ findItems = {
                         
                         checkmarkImageElement.onload = ()=> {
                             if (counter === findItems.findCharacterList.length) {
-                                setTimeout( () => window.alert("You Found Them ALL!"), 200)
+                                setTimeout( () => window.alert("You Found Them ALL!"), 300)
                             }}
                         // chatGPT lead me to the .onload. Looked up the documentation and used it. 
 
