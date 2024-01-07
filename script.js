@@ -57,33 +57,6 @@ function place(elem){
     }
 }
 
-/***********************************************************************************************************************************************
- ***********************************************************************************************************************************************
- ************************************************************************************************************************************************/
-/* Working on an object for placing images in the scene without overlapping them */
-
-
-
-// the below code works to place images, and to get the offset values and check them with the next item list but not all items
-/* //function to check for overlapping
-
-window.onload = function checkForOverlapping () {
-    let sceneCharacter = document.querySelectorAll(".scene_character")
-    console.log(sceneCharacter)
-    
-    for (let i=0;i<sceneCharacter.length;i++) {
-        let first = i
-        let second = first + 1
-    if ((sceneCharacter[second].offsetLeft < sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth || 
-            sceneCharacter[second].offsetLeft > sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth) 
-        && (sceneCharacter[second].offsetTop < sceneCharacter[first].offsetTop + sceneCharacter[first].offsetHeight || 
-            sceneCharacter[second].offsetTop > sceneCharacter[first].offsetTop + sceneCharacter[first].height)) {
-        console.log("the first item is not overlapping the second item")
-    } else {
-        console.log("the first and second item are overlapping")
-    } }    
-} */
-
 // function for adding characters to background from array of character urls
 function addSceneCharacters () {
     
@@ -102,10 +75,6 @@ function addSceneCharacters () {
  
 addSceneCharacters()
 
-
-/***********************************************************************************************************************************************
- ***********************************************************************************************************************************************
- ************************************************************************************************************************************************/
 
  // one object to handle creating a list of images that are to be found, and placing them in the ul in html
 findItems = {
@@ -213,3 +182,29 @@ console.log("These are the items NOT to be found: ", findItems.doNotFindCharList
 findItems.checkOffIfCorrectImageFound()
 
 
+/***********************************************************************************************************************************************
+ ***********************************************************************************************************************************************
+ ************************************************************************************************************************************************/
+/* Working on an object for placing images in the scene without overlapping them */
+
+
+
+
+/* //function to check for overlapping
+
+window.onload = function checkForOverlapping () {
+    let sceneCharacter = document.querySelectorAll(".scene_character")
+    console.log(sceneCharacter)
+    
+    for (let i=0;i<sceneCharacter.length;i++) {
+        let first = i
+        let second = first + 1
+    if ((sceneCharacter[second].offsetLeft < sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth || 
+            sceneCharacter[second].offsetLeft > sceneCharacter[first].offsetLeft + sceneCharacter[first].offsetWidth) 
+        && (sceneCharacter[second].offsetTop < sceneCharacter[first].offsetTop + sceneCharacter[first].offsetHeight || 
+            sceneCharacter[second].offsetTop > sceneCharacter[first].offsetTop + sceneCharacter[first].height)) {
+        console.log("the first item is not overlapping the second item")
+    } else {
+        console.log("the first and second item are overlapping")
+    } }    
+} */

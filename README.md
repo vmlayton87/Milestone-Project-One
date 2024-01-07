@@ -1,10 +1,6 @@
 # Milestone-Project-One
 
-Milestone project. 
-
-Needs to be interactive.
-Needs to be simple. 
-Most of it should be your own code, do not use librarys unless its just to pull data or free images.
+Milestone project for Software development bootcamp: Web Browser Game
 
 About my game:
 It is a search and find game where it tells you what images to look for, and you click on them. 
