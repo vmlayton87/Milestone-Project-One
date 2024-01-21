@@ -2,7 +2,7 @@
 
 Milestone project for Software development bootcamp: Web Browser Game
 
-About my game:
+## About my game:
 It is a search and find game where it tells you what images to look for, and you click on them. 
 There is an opener page where you can click on a start link that goes to forest.html
 The five items you have to find are randomly generated, as is the position of the items in the scene. 
@@ -10,31 +10,31 @@ When you find a correct item, it is removed from the scene, and a check mark is 
 When you find all five items, a window alert tells you that you have found all items.
 
 
-Sources:
-Opener Background.png: used an image of a magnifying glass from https://publicdomainvectors.org/ and edited it in paint3D in Windows to make it different colors. Then used microsoft word to create a collage of the different images and created an image file from that.
-Forest_background.png: https://opengameart.org/content/forest-scene No attribution required. 
-From https://publicdomainvectors.org/:
-    - Check-mark.png
-    - bee.png
-    - blue_bird.png
-    - brown_mouse.png
-    - Cartoon_Butterfly.png
-    - cartoon_duck.png
-    - Cartoon-Ant.png
-    - Cartoon-Frog.png
-    - Cartoon-owl-asleep.png
-    - Cartoon-Snail.png
-    - fat_yellow_bird.png
-    - fox.png
-    - grey_blue_butterfly.png
-    - grey_mouse.png
-    - monkey.png
-    - red_bird.png
-    - reindeer.png
-    - snail.png
-    - Snake-BACK.png
-    
-    MY NOTES
+## Sources:
+- Opener Background.png: used an image of a magnifying glass from https://publicdomainvectors.org/ and edited it in paint3D in Windows to make it different colors. Then used microsoft word to create a collage of the different images and created an image file from that.
+- Forest_background.png: https://opengameart.org/content/forest-scene No attribution required. 
+- From https://publicdomainvectors.org/:
+ - Check-mark.png
+ - bee.png
+ - blue_bird.png
+ - brown_mouse.png
+ - Cartoon_Butterfly.png
+ - cartoon_duck.png
+ - Cartoon-Ant.png
+ - Cartoon-Frog.png
+ - Cartoon-owl-asleep.png
+ - Cartoon-Snail.png
+ - fat_yellow_bird.png
+ - fox.png
+ - grey_blue_butterfly.png
+ - grey_mouse.png
+ - monkey.png
+ - red_bird.png
+ - reindeer.png
+ - snail.png
+ - Snake-BACK.png
+
+### MY NOTES
 
     12/22/2023
     - check for overlap of images
@@ -66,7 +66,7 @@ From https://publicdomainvectors.org/:
     - LOTS OF IDEAS AND LOTS OF LOGIC
     
     
-    ideas:
+ideas:
 
 search and find game like where's waldo
 - have multiple html files for the different scenes
