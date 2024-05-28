@@ -1,3 +1,49 @@
+/* Opening page */
+#opener {
+  display: flex;
+  border: black solid 2px;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+  left: 10vw;
+  top: 10vh;
+  height: 80vh;
+  width: 80vw;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
 
+#open_body {
+  background-image: url("../Assets/Opener Background.png");
+}
+
+/* Forest scene */
+#forest_body {
+  width: max-content;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+#forest_scene {
+  text-align: center;
+}
+
+.background_image {
+  background-image: url("../Assets/Forest/Forest_background.png");
+  position: relative;
+  background-size: 1280px 720px;
+  height: 720px;
+  width: 1280px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 /*# sourceMappingURL=style.css.map */
