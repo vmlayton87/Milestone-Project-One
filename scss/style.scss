@@ -1,4 +1,22 @@
+@use "./config" as *;
+@use "./sceneConfig" as *;
+
+/* For all pages */
+body {
+  color: $primary-text-color;
+  font-family: $primary-font-family;
+  text-align: center;
+}
+a {
+  &:link {
+    color: $secondary-text-color;
+  }
+  &:hover {
+    color: #7258e6;
+  }
+}
 /* Opening page */
+
 #opener {
   display: flex;
   border: black solid 2px;
@@ -14,34 +32,50 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  // text-align: center;
 }
 
 #open_body {
-  background-image: url("./Assets/Opener\ Background.png");
+  background-image: url("../Assets/Opener\ Background.png");
 }
 
 /* Forest scene */
 #forest_body {
-  width: max-content;
-  text-align: center;
+  @extend %scene-grid-template;
+  // width: max-content;
+  // text-align: center;
   padding: 5px;
   margin: 0 auto;
 }
 
+.scene-title {
+  @extend %scene-header;
+}
+
+#item-checklist {
+  @extend %item-checklist;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 #forest_scene {
-  text-align: center;
+  @extend %scene;
+  // text-align: center;
 }
 
 .background_image {
-  background-image: url("./Assets/Forest/Forest_background.png");
+  background-image: url("../Assets/Forest/Forest_background.png");
   position: relative;
   background-size: 1280px 720px;
   height: 720px;
   width: 1280px;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
+.sidebar {
+  @extend %sidebar;
 }
